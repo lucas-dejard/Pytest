@@ -2,7 +2,7 @@ REPOSITORY TO SERVE AS A TEST CASE OF UI TESTS
 
 ABILITIES USED: Selenium and Pytest
 
-Site focused: [http://testphp.vulnweb.com/login.php](http://testphp.vulnweb.com/login.php)
+Site focused: [https://www.phptravels.net/](https://www.phptravels.net/)
 
 Test Scopus Now Available!!!
 

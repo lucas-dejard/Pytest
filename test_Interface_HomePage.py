@@ -7,25 +7,37 @@ import time
 
 
 class Test_Contact:
-    """Test the Link for Telephone Number"""
-    def test_number(self):
+    """Test the Link for ways to contact site"""
+    def test_email(self):
         drivern = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
-        drivern.get("https://www.phptravels.net/login")
-        clicknumbern = drivern.find_element(By.XPATH, '//a[normalize-space()="+1-234-56789"]').click
+        drivern.get("http://testphp.vulnweb.com/login.php")
+        clicknumbern = drivern.find_element(By.XPATH, '//a[normalize-space()="Contact Us"]')
         time.sleep(3)
         drivern.quit()
         return "True"
 
     """Test the Link for E-mail"""
-    def test_email(self):
+    def test_number(self):
         drivere = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
-        drivere.get("https://www.phptravels.net/login")
-        clicknumbere = drivere.find_element(By.XPATH, '//ul[@class="list-items"]//a[contains(@class,"waves-effect")]'
-                                                      '[normalize-space()="info@travelagency.com"]').click
-        time.sleep(3)
+        drivere.get("http://testphp.vulnweb.com/login.php")
+        clicknumbere = drivere.find_element(By.XPATH, '//a[normalize-space()="About Us"]').click()
+        time.sleep(6)
         drivere.quit()
         return "True"
 
 
+class Test_login_false:
+    """Test with wrong inputs to Fail"""
+    def test_login_false(self):
+        global drivern, clicknumbern
+        drivern = webdriver.Firefox(service=Service(GeckoDriverManager().install()))
+        drivern.get("http://testphp.vulnweb.com/login.php")
+        clicknumbern = drivern.find_element(By.XPATH, '//input[@name="uname"]').send_keys("testefalha@gmail.com")
+        time.sleep(3)
+        return "True"
 
-
+    def test_password_false(self):
+        clicknumbern = drivern.find_element(By.XPATH, "//input[@name='pass']").send_keys("testefalha@gmail.com")
+        time.sleep(3)
+        drivern.quit()
+        return "True"
