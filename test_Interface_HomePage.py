@@ -120,7 +120,7 @@ class TestLoginFalse:
         return "True"
 
 class TestLogin:
-    """Test with wrong inputs to Fail"""
+    """Test with right inputs to log in"""
 
     def test_login(self):
         global drivern, clicknumbern
@@ -140,8 +140,7 @@ class TestLogin:
         time.sleep(3)
         return "True"
     def test_verify_login(self):
-            clicknumbern = drivern.find_element(By.XPATH, "//input[@name='update']")
-            print(clicknumbern)
-
-            return "True"
+        clicknumbern = drivern.find_element(By.XPATH, "//input[@name='update']")
+        print(clicknumbern)
+        return "True"
 
